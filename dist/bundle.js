@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const root = document.createElement(\"div\")\nroot.innerHTML = `<p>Hello Webpack.</p>`\ndocument.body.appendChild(root)\n\n//# sourceURL=webpack:///./src/scripts/main.js?");
+eval("const root = document.createElement(\"div\")\r\nroot.innerHTML = `<p>Hello Tim.</p>`\r\ndocument.body.appendChild(root)\n\n//# sourceURL=webpack:///./src/scripts/main.js?");
 
 /***/ })
 

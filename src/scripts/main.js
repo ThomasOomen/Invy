@@ -1,3 +1,3 @@
 const root = document.createElement("div")
-root.innerHTML = `<p>Hello Webpack.</p>`
+root.innerHTML = `<p>Hello Tim.</p>`
 document.body.appendChild(root)
