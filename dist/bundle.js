@@ -81,19 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/scripts/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/scripts/main.js":
-/*!*****************************!*\
-  !*** ./src/scripts/main.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("class Model {\r\n    constructor() {\r\n    }\r\n}\r\n\r\nclass View {\r\n    constructor() {\r\n        const root = document.createElement(\"div\")\r\n        root.innerHTML = `<p>dsfhdsfkdsfjklsdkljfsdkjlkldfjflk Thomas.</p>`\r\n        document.body.appendChild(root)\r\n    }\r\n}\r\n\r\nclass Controller{\r\n    constructor(model, view) {\r\n        this.model = model;\r\n        this.view = view;\r\n    }\r\n}\r\n\r\n\r\nconst app = new Controller(new Model(), new View())\n\n//# sourceURL=webpack:///./src/scripts/main.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controller_InvyController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controller/InvyController */ \"./src/controller/InvyController.js\");\n\r\n\r\nnew _controller_InvyController__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/controller/InvyController.js":
+/*!******************************************!*\
+  !*** ./src/controller/InvyController.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return InvyController; });\nclass InvyController{\r\n    constructor(){\r\n        this.initialize();\r\n    }\r\n\r\n    async initialize(){\r\n        const root = document.createElement(\"div\")\r\n        root.innerHTML = `<p>Hello Webpack.</p>`\r\n        document.body.appendChild(root)\r\n        const root2 = document.createElement(\"div\")\r\n        root2.innerHTML = `<p>Hasdfasdasdaddd</p>`\r\n        document.body.appendChild(root2)\r\n        // andere controllers aanroepen.\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/controller/InvyController.js?");
 
 /***/ })
 
