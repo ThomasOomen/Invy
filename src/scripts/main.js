@@ -8,6 +8,18 @@ class View {
         const root = document.createElement("div")
         root.innerHTML = `<p>dsfhdsfkdsfjklsdkljfsdkjlkldfjflk Thomas.</p>`
         document.body.appendChild(root)
+
+        const clothesButton = document.createElement("button");
+        clothesButton.innerHTML = "Kleding"
+        document.body.appendChild(clothesButton)
+
+        const tierlantinButton = document.createElement("button");
+        tierlantinButton.innerHTML = "Tierlantijn"
+        document.body.appendChild(tierlantinButton)
+
+        const decorationButton = document.createElement("button");
+        decorationButton.innerHTML = "Decoratie"
+        document.body.appendChild(decorationButton)
     }
 }
 

@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class Model {\r\n    constructor() {\r\n    }\r\n}\r\n\r\nclass View {\r\n    constructor() {\r\n        const root = document.createElement(\"div\")\r\n        root.innerHTML = `<p>dsfhdsfkdsfjklsdkljfsdkjlkldfjflk Thomas.</p>`\r\n        document.body.appendChild(root)\r\n    }\r\n}\r\n\r\nclass Controller{\r\n    constructor(model, view) {\r\n        this.model = model;\r\n        this.view = view;\r\n    }\r\n}\r\n\r\n\r\nconst app = new Controller(new Model(), new View())\n\n//# sourceURL=webpack:///./src/scripts/main.js?");
+eval("class Model {\r\n    constructor() {\r\n    }\r\n}\r\n\r\nclass View {\r\n    constructor() {\r\n        const root = document.createElement(\"div\")\r\n        root.innerHTML = `<p>dsfhdsfkdsfjklsdkljfsdkjlkldfjflk Thomas.</p>`\r\n        document.body.appendChild(root)\r\n\r\n        const clothesButton = document.createElement(\"button\");\r\n        clothesButton.innerHTML = \"Kleding\"\r\n        document.body.appendChild(clothesButton)\r\n\r\n        const tierlantinButton = document.createElement(\"button\");\r\n        tierlantinButton.innerHTML = \"Tierlantijn\"\r\n        document.body.appendChild(tierlantinButton)\r\n\r\n        const decorationButton = document.createElement(\"button\");\r\n        decorationButton.innerHTML = \"Decoratie\"\r\n        document.body.appendChild(decorationButton)\r\n    }\r\n}\r\n\r\nclass Controller{\r\n    constructor(model, view) {\r\n        this.model = model;\r\n        this.view = view;\r\n    }\r\n}\r\n\r\n\r\nconst app = new Controller(new Model(), new View())\n\n//# sourceURL=webpack:///./src/scripts/main.js?");
 
 /***/ })
 
