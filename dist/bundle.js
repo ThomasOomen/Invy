@@ -86,17 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\Thomas\\\\source\\\\repos\\\\Invy\\\\node_modules\\\\css-loader\\\\dist\\\\runtime\\\\api.js'\");\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
-
-/***/ }),
-
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
@@ -117,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemController; });\n/* harmony import */ var _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/CreateItemView */ \"./src/view/CreateItemView.js\");\n\n\nclass CreateItemController{\n    constructor(){\n        console.log(\"item controller\");\n        this.view = new _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n    }\n\n    getElement() {\n        return this.view.getElement();\n    }\n}\n\n//# sourceURL=webpack:///./src/controller/CreateItemController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemController; });\n/* harmony import */ var _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/CreateItemView */ \"./src/view/CreateItemView.js\");\n\r\n\r\nclass CreateItemController{\r\n    constructor(){\r\n        console.log(\"item controller\");\r\n        this.view = new _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n    }\r\n\r\n    getElement() {\r\n        return this.view.getElement();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/controller/CreateItemController.js?");
 
 /***/ }),
 
@@ -160,9 +149,9 @@ eval("\n\n//# sourceURL=webpack:///./src/controller/UpdateItemController.js?");
   !*** ./src/css/style.css ***!
   \***************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/style.css?");
+eval("\n\n//# sourceURL=webpack:///./src/css/style.css?");
 
 /***/ }),
 
@@ -174,7 +163,7 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemView; });\nclass CreateItemView{\r\n    constructor(){\r\n        console.log(\"item view\");\r\n        this.buildElement();\r\n    }\r\n\r\n    buildElement(){\r\n        let containerElement = document.createElement(\"container\");\r\n        let rowElement = document.createElement(\"row\");\r\n        let colElement = document.createElement(\"col-sm\");\r\n        let label = document.createElement(\"label\");\r\n        label.innerText = \"doe iets laten zien zodat ik weet dat dit werkt :)\"\r\n\r\n        containerElement.append(rowElement, colElement, label);\r\n        this.element = containerElement;\r\n        console.log(\"build element\");\r\n        return this.element;\r\n    }\r\n\r\n    getElement(){\r\n        console.log(\"return element\");\r\n        console.log(this.buildElement());\r\n        return this.buildElement();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/view/CreateItemView.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemView; });\nclass CreateItemView{\r\n    constructor(){\r\n        console.log(\"item view\");\r\n        // this.buildElement();\r\n    }\r\n\r\n    buildElement(){\r\n        // let containerElement = document.getElementById(\"root\");\r\n        // let rowElement = document.createElement(\"row\");\r\n        // let colElement = document.createElement(\"col-sm\");\r\n        // let label = document.createElement(\"label\");\r\n        // label.innerText = \"doe iets laten zien zodat ik weet dat dit werkt :)\"\r\n\r\n        // containerElement.append(rowElement, colElement, label);\r\n        // this.element = containerElement;\r\n        // console.log(\"build element\");\r\n        // return this.element;\r\n        let x = document.getElementById(\"root\");\r\n        let btn = document.createElement(\"BUTTON\");   // Create a <button> element\r\n        btn.innerHTML = \"CLICK ME\";                   // Insert text\r\n        x.append(btn);               // Append <button> to <body>\r\n    }\r\n\r\n    getElement(){\r\n        console.log(\"return element\");\r\n        // console.log(this.buildElement());\r\n        return this.buildElement();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/view/CreateItemView.js?");
 
 /***/ })
 
