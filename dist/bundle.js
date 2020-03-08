@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\Thomas\\\\source\\\\repos\\\\Invy\\\\node_modules\\\\css-loader\\\\dist\\\\runtime\\\\api.js'\");\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
@@ -94,7 +105,30 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _controller_InvyController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controller/InvyController */ \"./src/controller/InvyController.js\");\n\r\n\r\nnew _controller_InvyController__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _controller_InvyController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/InvyController */ \"./src/controller/InvyController.js\");\n\r\n\r\n\r\nnew _controller_InvyController__WEBPACK_IMPORTED_MODULE_1__[\"InvyController\"]();\r\n\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ }),
+
+/***/ "./src/controller/CreateItemController.js":
+/*!************************************************!*\
+  !*** ./src/controller/CreateItemController.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemController; });\n/* harmony import */ var _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/CreateItemView */ \"./src/view/CreateItemView.js\");\n\n\nclass CreateItemController{\n    constructor(){\n        console.log(\"item controller\");\n        this.view = new _view_CreateItemView__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n    }\n\n    getElement() {\n        return this.view.getElement();\n    }\n}\n\n//# sourceURL=webpack:///./src/controller/CreateItemController.js?");
+
+/***/ }),
+
+/***/ "./src/controller/InventoryController.js":
+/*!***********************************************!*\
+  !*** ./src/controller/InventoryController.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/controller/InventoryController.js?");
 
 /***/ }),
 
@@ -102,11 +136,45 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _con
 /*!******************************************!*\
   !*** ./src/controller/InvyController.js ***!
   \******************************************/
+/*! exports provided: InvyController */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"InvyController\", function() { return InvyController; });\n/* harmony import */ var _CreateItemController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateItemController */ \"./src/controller/CreateItemController.js\");\n/* harmony import */ var _InventoryController__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InventoryController */ \"./src/controller/InventoryController.js\");\n/* harmony import */ var _InventoryController__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_InventoryController__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _UpdateItemController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UpdateItemController */ \"./src/controller/UpdateItemController.js\");\n/* harmony import */ var _UpdateItemController__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_UpdateItemController__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\nclass InvyController{\r\n    constructor(){\r\n        console.log(\"invy controller\");\r\n        this.initialize()\r\n    }\r\n\r\n    async initialize(){\r\n        this.CreateItemController = new _CreateItemController__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\r\n        this.CreateItemController.getElement();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/controller/InvyController.js?");
+
+/***/ }),
+
+/***/ "./src/controller/UpdateItemController.js":
+/*!************************************************!*\
+  !*** ./src/controller/UpdateItemController.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/controller/UpdateItemController.js?");
+
+/***/ }),
+
+/***/ "./src/css/style.css":
+/*!***************************!*\
+  !*** ./src/css/style.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/style.css?");
+
+/***/ }),
+
+/***/ "./src/view/CreateItemView.js":
+/*!************************************!*\
+  !*** ./src/view/CreateItemView.js ***!
+  \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return InvyController; });\nclass InvyController{\r\n    constructor(){\r\n        this.initialize();\r\n    }\r\n\r\n    async initialize(){\r\n        const root = document.createElement(\"div\")\r\n        root.innerHTML = `<p>Hello Webpack.</p>`\r\n        document.body.appendChild(root)\r\n        const root2 = document.createElement(\"div\")\r\n        root2.innerHTML = `<p>Hasdfasdasdaddd</p>`\r\n        document.body.appendChild(root2)\r\n        // andere controllers aanroepen.\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/controller/InvyController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return CreateItemView; });\nclass CreateItemView{\r\n    constructor(){\r\n        console.log(\"item view\");\r\n        this.buildElement();\r\n    }\r\n\r\n    buildElement(){\r\n        let containerElement = document.createElement(\"container\");\r\n        let rowElement = document.createElement(\"row\");\r\n        let colElement = document.createElement(\"col-sm\");\r\n        let label = document.createElement(\"label\");\r\n        label.innerText = \"doe iets laten zien zodat ik weet dat dit werkt :)\"\r\n\r\n        containerElement.append(rowElement, colElement, label);\r\n        this.element = containerElement;\r\n        console.log(\"build element\");\r\n        return this.element;\r\n    }\r\n\r\n    getElement(){\r\n        console.log(\"return element\");\r\n        console.log(this.buildElement());\r\n        return this.buildElement();\r\n    }\r\n}\n\n//# sourceURL=webpack:///./src/view/CreateItemView.js?");
 
 /***/ })
 

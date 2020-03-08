@@ -1,15 +1,15 @@
-export default class InvyController{
+import CreateItemController from "./CreateItemController";
+import InventoryController from "./InventoryController";
+import UpdateItemController from "./UpdateItemController";
+
+export class InvyController{
     constructor(){
-        this.initialize();
+        console.log("invy controller");
+        this.initialize()
     }
 
     async initialize(){
-        const root = document.createElement("div")
-        root.innerHTML = `<p>Hello Webpack.</p>`
-        document.body.appendChild(root)
-        const root2 = document.createElement("div")
-        root2.innerHTML = `<p>Hasdfasdasdaddd</p>`
-        document.body.appendChild(root2)
-        // andere controllers aanroepen.
+        this.CreateItemController = new CreateItemController();
+        this.CreateItemController.getElement();
     }
 }
