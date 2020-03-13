@@ -5,15 +5,59 @@
     <title>Hello Webpack</title>
   </head>
   <body>  
-    <div class="container" id="root">
+    <div class="container-fluid" id="root">
       <div class="row">
-        <div class="col-sm">
+        <div class="col border" id="mainCreateItemDiv">
+          <section id="add-product-module">
+            <form id="create-product-form">
+              <h4>Add product</h4>
+                <select id="typeChooser" class="form-control form-control-sm">
+                  <option value="clothes">kleding</option>
+                  <option value="tierlantin">tierlantijn</option>
+                  <option value="decoration">decoratie</option>
+                </select> 
+              <div class="form-group">
+                <label for="name">naam:</label>
+                <input type="text" class="form-control form-control-sm" id="name" placeholder="naam">
+              </div>
+              <div class="form-group">
+                <label for="description">beschrijving:</label>
+                <textarea class="form-control" id="description" rows="2"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="purchase_price">inkoopprijs:</label>
+                  <input type="text" class="form-control form-control-sm" id="purchase_price" placeholder="inkoopprijs">
+                </div>
+                <div class="col">
+                  <label for="selling_price_exc_btw">verkoopprijs exc. btw:</label>
+                  <input type="text" class="form-control form-control-sm" id="selling_price_exc_btw" placeholder="verkoopprijs">
+                </div>
+                <div class="col">
+                  <label for="selling_price_inc_btw">verkoopprijs inc. btw:</label>
+                  <input type="text" class="form-control form-control-sm" id="selling_price_inc_btw" placeholder="verkoopprijs">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <label for="minimum_stock">minimale voorraad:</label>
+                  <input type="text" class="form-control form-control-sm" id="minimum_stock" placeholder="minimale voorraad">
+                </div>
+                <div class="col">
+                  <label for="current_stock">huidige voorrraad:</label>
+                  <input type="text" class="form-control form-control-sm" id="current_stock" placeholder="huidige voorrraad">
+                </div>
+              </div>
+              <button id="add-product-btn" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <h2>Products</h2>
+            <ul id="product-list"></ul>
+          </section>
+        </div>
+        <div class="col">
           One of three columns
         </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
+        <div class="col">
           One of three columns
         </div>
       </div>

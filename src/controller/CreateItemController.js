@@ -7,6 +7,6 @@ export default class CreateItemController{
     }
 
     getElement() {
-        return this.view.getElement();
+        this.view.getElement();
     }
 }
