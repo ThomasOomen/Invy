@@ -5,20 +5,15 @@ export default class CreateItemView{
     }
 
     buildElement(){
-        // let containerElement = document.getElementById("root");
-        // let rowElement = document.createElement("row");
-        // let colElement = document.createElement("col-sm");
-        // let label = document.createElement("label");
-        // label.innerText = "doe iets laten zien zodat ik weet dat dit werkt :)"
+        let mainCreateItemDiv = document.getElementById("mainCreateItemDiv"); //pak hoofd div voor create item.
+        let createItemDiv = document.createElement("div"); // maakt nieuw element van het type div
+        createItemDiv.setAttribute("id", "createItemDiv"); // pakt het nieuwe gemaakte div en zet het id -> createItemDiv
+        createItemDiv.setAttribute("class", "col text-center"); // pakt het nieuwe gemaakte div en zet de class -> col text-center (bootstrap kolom en zet alles in het het midden van die kolom)
 
-        // containerElement.append(rowElement, colElement, label);
-        // this.element = containerElement;
-        // console.log("build element");
-        // return this.element;
-        let x = document.getElementById("root");
-        let btn = document.createElement("BUTTON");   // Create a <button> element
-        btn.innerHTML = "CLICK ME";                   // Insert text
-        x.append(btn);               // Append <button> to <body>
+        let btn = document.createElement("BUTTON");   // maak button
+        btn.innerHTML = "CLICK ME";   // zet tekst
+        createItemDiv.append(btn);    // voeg button toe aan de kolom waar alle onderdelen in moeten
+        mainCreateItemDiv.append(createItemDiv); // voeg de gemaakte kolom toe aan de hoofdkolom
     }
 
     getElement(){
