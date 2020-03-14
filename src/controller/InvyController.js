@@ -4,7 +4,6 @@ import UpdateItemController from "./UpdateItemController";
 
 export class InvyController{
     constructor(){
-        console.log("invy controller");
         this.initialize()
     }
 
