@@ -58,7 +58,6 @@ export default class ReadItemView{
 
     setEventListenerClothes(callback){
         this.clothesButton.addEventListener("click", callback);
-
     }
 
     setEventListenerTierlantin(callback){

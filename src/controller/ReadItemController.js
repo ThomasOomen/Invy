@@ -1,8 +1,10 @@
 import ReadItemView from "../view/ReadItemView";
+import UpdateItemController from "../controller/UpdateItemController";
 
 export default class ReadItemController{
     constructor(){
         this.ReadItemView = new ReadItemView();
+        this.UpdateItemController = new UpdateItemController();
 
         this.openClothes = this.openClothes.bind(this);
         this.ReadItemView.setEventListenerClothes(this.openClothes);
@@ -22,13 +24,16 @@ export default class ReadItemController{
     
     openTierlantin(event){
         this.buildGrid("T");
+        this.UpdateItemController.buildFrom("Tierlantin");
     }
 
     openDecoration(event){
         this.buildGrid("D");
+        this.UpdateItemController.buildFrom("Decoration");
     }
 
     openClothes(event){
         this.buildGrid("k");
+        this.UpdateItemController.buildFrom("Clothes");
     }
 }
