@@ -24,16 +24,22 @@ export default class ReadItemController{
     
     openTierlantin(event){
         this.buildGrid("T");
+        this.UpdateItemController.setExtraProperties(0);
+        this.UpdateItemController.setType("Tierlantin");
         this.UpdateItemController.buildFrom("Tierlantin");
     }
 
     openDecoration(event){
         this.buildGrid("D");
+        this.UpdateItemController.setExtraProperties(0);
+        this.UpdateItemController.setType("Decoration");
         this.UpdateItemController.buildFrom("Decoration");
     }
 
     openClothes(event){
         this.buildGrid("k");
+        this.UpdateItemController.setExtraProperties(0);
+        this.UpdateItemController.setType("Clothes");
         this.UpdateItemController.buildFrom("Clothes");
     }
 }

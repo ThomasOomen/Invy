@@ -3,11 +3,13 @@ import UpdateItemView from "../view/UpdateItemView";
 export default class UpdateItemController{
     constructor(){
         this.UpdateItemView = new UpdateItemView(this);
+        let activeType = "";
     }
 
-    buildFrom(type){
+    buildFrom(type, extraProperties){
         this.UpdateItemView.deleteColumn();
-        this.UpdateItemView.buildColumn(type);
+        this.UpdateItemView.buildColumn(this.getType(), this.getExtraProperties());
+
         this.newProperty = this.newProperty.bind(this);
         this.UpdateItemView.setEventListenerAddProperty(this.newProperty)
 
@@ -19,7 +21,8 @@ export default class UpdateItemController{
     }
 
     newProperty(event){
-        console.log("nieuw eigenschap is toegevoegd");
+        this.updateExtraProperties();
+        this.buildFrom();
     }
 
     saveChanges(event){
@@ -30,4 +33,25 @@ export default class UpdateItemController{
         console.log("geselecteerde item is verwijderd");
     }
 
+    setExtraProperties(value){
+        console.log(value);
+        this.extraProperties = value;
+    }
+
+    updateExtraProperties(){
+        this.extraProperties++;
+    }
+
+    getExtraProperties(){
+        return this.extraProperties;
+    }
+
+    setType(value){
+        console.log(value);
+        this.activeType = value;
+    }
+
+    getType(){
+        return this.activeType;
+    }
 }

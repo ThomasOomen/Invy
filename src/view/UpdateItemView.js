@@ -2,10 +2,10 @@ export default class UpdateItemView{
     constructor(){
     }
 
-    buildColumn(type){
+    buildColumn(type, extraProperties){
         let updateItemDiv = document.createElement("div");
         updateItemDiv.id = "updateItemDiv";
-        updateItemDiv.append(this.createCanvasDiv(), this.createForm(type), this.createButtonDiv());
+        updateItemDiv.append(this.createCanvasDiv(), this.createForm(type, extraProperties), this.createButtonDiv());
         mainUpdateItemDiv.append(updateItemDiv);
     }
     
@@ -26,14 +26,19 @@ export default class UpdateItemView{
         canvasDiv.append(canvas);
 
         return canvasDiv;
-
     }
 
-    createForm(type){
+    createForm(type, extraProperties){
         let inputFieldsDiv = document.createElement("div");
         inputFieldsDiv.id = "inputFieldsDiv";
         inputFieldsDiv.className = "form-group";
-        inputFieldsDiv.append(this.createNameDiv(), this.createDescriptionDiv(), this.createSalesDiv(), this.createStockDiv(), this.createSpecialFields(type),this.createPropertyDiv());
+        if(extraProperties != 0 ){
+            inputFieldsDiv.append(this.createNameDiv(), this.createDescriptionDiv(), this.createSalesDiv(), this.createStockDiv(), this.createSpecialFields(type), this.createExtraProperties(extraProperties),this.createPropertyDiv());
+        }
+        else {
+            inputFieldsDiv.append(this.createNameDiv(), this.createDescriptionDiv(), this.createSalesDiv(), this.createStockDiv(), this.createSpecialFields(type),this.createPropertyDiv());
+        }
+        
 
         let form = document.createElement("form");
         form.append(inputFieldsDiv);
@@ -329,6 +334,25 @@ export default class UpdateItemView{
         buttonDiv.className = "text-center form-row";
         buttonDiv.append(this.createSaveButton(), this.createDeleteButton());
         return buttonDiv;
+    }
+
+    createExtraProperties(extraProperties){
+        let extraPropertyDiv = document.createElement("div");
+        extraPropertyDiv.className = "form-group";
+        for(let i = 0; i < extraProperties; i++){
+            let extraPropertyLabel = document.createElement("label");
+            extraPropertyLabel.innerHTML ="Extra eigenschap";
+            extraPropertyLabel.id = "extraProperty" + extraProperties;
+            extraPropertyLabel.for = "extraProperty" + extraProperties;
+
+            let extraPropertyInput;
+            extraPropertyInput = document.createElement("input");
+            extraPropertyInput.id = "extraProperty" + extraProperties;;
+            extraPropertyInput.className = "form-control form-control-sm";
+
+            extraPropertyDiv.append(extraPropertyLabel, extraPropertyInput);
+        }
+        return extraPropertyDiv;
     }
 
     setEventListenerAddProperty(callback){
