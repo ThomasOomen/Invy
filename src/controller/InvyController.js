@@ -10,7 +10,6 @@ export class InvyController{
 
     async initialize(){
         this.CreateItemController = new CreateItemController();
-        this.CreateItemController.getElement();
         this.ReadItemController = new ReadItemController();
     }
 }
