@@ -3,8 +3,8 @@ import ProductService from "../model/ProductService";
 
 export default class CreateItemController{
     constructor(){
-        this.view = new CreateItemView(this);
         this.productService = new ProductService();
+        this.view = new CreateItemView(this);
         this.createProduct = this.createProduct.bind(this);
         this.view.setEventListenerCreateClothes(this.createProduct); 
     }
@@ -20,6 +20,8 @@ export default class CreateItemController{
             this.productService.addClothesProduct(name, description, purchase_price, selling_price_exc_btw, selling_price_inc_btw, minimum_stock, current_stock,
                 colorC, size);
             this.view.updateProductList();
+            this.createProduct = this.createProduct.bind(this);
+            this.view.setEventListenerCreateClothes(this.createProduct); 
         }
     }
 
@@ -29,6 +31,8 @@ export default class CreateItemController{
             this.productService.addTierlantinProduct(name, description, purchase_price, selling_price_exc_btw, selling_price_inc_btw, minimum_stock, 
                 current_stock, weight);
             this.view.updateProductList();
+            this.createProduct = this.createProduct.bind(this);
+            this.view.setEventListenerCreateClothes(this.createProduct); 
         }
     }
 
@@ -40,10 +44,11 @@ export default class CreateItemController{
         this.productService.addDecorationProduct(name, description, purchase_price, selling_price_exc_btw, selling_price_inc_btw, minimum_stock, current_stock, 
             colorD, sizeInCM, numberInBox);
         this.view.updateProductList();
+        this.createProduct = this.createProduct.bind(this);
+        this.view.setEventListenerCreateClothes(this.createProduct); 
     }
 
     createProduct(event) {
-        console.log("THomas idee")
         let name = document.getElementById("name").value;
         let description = document.getElementById("description").value;
         let purchase_price = document.getElementById("purchase_price").value;
@@ -141,5 +146,9 @@ export default class CreateItemController{
         let index = parseInt(json);
         let obj = this.productService.getLastProduct(index);
         return JSON.parse(obj);
+    }
+
+    getProductNames() {
+        return this.productService.getProductNames();
     }
 }

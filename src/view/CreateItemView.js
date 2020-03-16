@@ -191,7 +191,33 @@ export default class CreateItemView{
 
     buildColum() {
         this.buildCreateForm();
+        this.buildProductList();
     }
+
+    buildProductList() {
+        let section = document.getElementById("add-product-module");
+
+        let title = document.createElement("h4");
+        title.innerHTML = "Products: ";
+
+        let ul = document.createElement("ul");
+        ul.id = "product-list";
+
+        this.getCurrentProducts(ul);
+
+        section.append(title, ul);
+    }
+
+    getCurrentProducts(ul) {
+        let products = this.createItemController.getProductNames();
+        for(let i = 0; i < products.length; i++) {
+            let li = document.createElement("li")
+            let textnode = products[i];
+            li.append(textnode);
+            ul.append(li);
+        }
+    }
+
 
     buildCreateForm() {
         let form = document.getElementById("create-product-form")

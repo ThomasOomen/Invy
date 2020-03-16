@@ -70,8 +70,16 @@ export default class ProductService {
         localStorage.setItem("index", index);
     }
 
-    getProducts() {
-        return this.products;
+    getProductNames() {
+        let productNames = [];
+        for(let i = 0; i < localStorage.getItem("index"); i++) {
+            let index = parseInt(i);
+            let obj = localStorage.getItem(index);
+            let test = JSON.parse(obj);
+            let text = test.name;
+            productNames.push(text);
+        }
+        return productNames;
     }
 
     getIndex() {
