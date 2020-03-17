@@ -2,3 +2,4 @@
 node_modules/webpack-cli/package.json
 node_modules/webpack/package.json
 dist/bundle.js
+dist/bundle.js
