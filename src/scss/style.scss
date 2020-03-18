@@ -11,7 +11,11 @@
   }
   
   .grid-item {
-    padding: 15px;
+    // padding: 15px;
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     border: 1px solid #000000;
     text-align: center;
   }
@@ -58,4 +62,27 @@
 /* Darker background on mouse-over */
 #addProperty:hover {
   background-color: rgb(50, 216, 0);
+}
+
+// The div with an object that not sould be on screen.
+.object {
+  display: none;
+}
+
+// Drag and drop:
+.product {
+  cursor: pointer;
+}
+
+// .hold {
+//   border: solid #cccccc 4px;
+// }
+
+.hovered {
+  background: #f4f4f4;
+  border-style: dashed;
+}
+
+.invisible {
+  display: none;
 }

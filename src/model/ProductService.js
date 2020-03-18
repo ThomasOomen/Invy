@@ -19,7 +19,6 @@ export default class ProductService {
             "isPlacedOnField" : false
         }
         this.products.push(clothesProduct);
-        console.log(this.products);
         let index = localStorage.getItem("index")
         localStorage.setItem(index, JSON.stringify(clothesProduct));
         index = parseInt(index) + 1;
@@ -40,7 +39,6 @@ export default class ProductService {
             "isPlacedOnField" : false
         }
         this.products.push(tierlantinProduct);
-        console.log(this.products);
         let index = localStorage.getItem("index")
         localStorage.setItem(index.toString(), JSON.stringify(tierlantinProduct));
         index = parseInt(index) + 1;
@@ -63,23 +61,21 @@ export default class ProductService {
             "isPlacedOnField" : false
         }
         this.products.push(decorationProduct);
-        console.log(this.products);
         let index = localStorage.getItem("index")
         localStorage.setItem(index.toString(), JSON.stringify(decorationProduct));
         index = parseInt(index) + 1;
         localStorage.setItem("index", index);
     }
 
-    getProductNames() {
-        let productNames = [];
+    getProducts() {
+        let products = [];
         for(let i = 0; i < localStorage.getItem("index"); i++) {
             let index = parseInt(i);
             let obj = localStorage.getItem(index);
             let test = JSON.parse(obj);
-            let text = test.name;
-            productNames.push(text);
+            products.push(test);
         }
-        return productNames;
+        return products;
     }
 
     getIndex() {

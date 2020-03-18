@@ -170,15 +170,18 @@ export default class CreateItemView{
         createButton.addEventListener("click", callback)
     }
 
-    updateProductList() {
-        let ul = document.getElementById("product-list");
-        let li = document.createElement("li");
-        let node = this.createItemController.getNewProduct();
-        let text = node.name;
-        let textnode = document.createTextNode(text);
-        li.appendChild(textnode);
-        ul.appendChild(li);
-        this.clearForm();
+    setProductDragStartEventlisteners(callback) {
+        let products = document.getElementsByClassName("product");
+        for(let i = 0; i < products.length; i++) {
+            products[i].addEventListener("dragstart", callback);
+        }
+    }
+
+    setProductDragEndEventListener(callback) {
+        let products = document.getElementsByClassName("product");
+        for(let i = 0; i < products.length; i++) {
+            products[i].addEventListener("dragend", callback);
+        }
     }
 
     clearForm() {
@@ -192,6 +195,8 @@ export default class CreateItemView{
     buildColum() {
         this.buildCreateForm();
         this.buildProductList();
+        this.createItemController.setDragStartListeners(this);
+        this.createItemController.setDragEndListeners(this);
     }
 
     buildProductList() {
@@ -200,24 +205,52 @@ export default class CreateItemView{
         let title = document.createElement("h4");
         title.innerHTML = "Products: ";
 
-        let ul = document.createElement("ul");
-        ul.id = "product-list";
+        let productListDiv = document.createElement("div");
+        productListDiv.id = "productList";
 
-        this.getCurrentProducts(ul);
+        this.getCurrentProducts(productListDiv);
 
-        section.append(title, ul);
+        section.append(title, productListDiv);
     }
 
-    getCurrentProducts(ul) {
-        let products = this.createItemController.getProductNames();
+    getCurrentProducts(productListDiv) {
+        let products = this.createItemController.getProducts();
+        console.log(products);
         for(let i = 0; i < products.length; i++) {
-            let li = document.createElement("li")
-            let textnode = products[i];
-            li.append(textnode);
-            ul.append(li);
+            if(!products[i].isPlacedOnField) {
+                let div = document.createElement("div");
+                div.className = "product";
+                div.draggable = "true";
+                div.innerHTML = products[i].name;
+    
+                let productDiv = document.createElement("div");
+                productDiv.innerHTML = JSON.stringify(products[i]);
+                productDiv.className = "productListItem object";
+    
+                div.appendChild(productDiv);   
+                productListDiv.append(div);
+            }       
         }
     }
 
+    updateProductList() {
+        let productListDiv = document.getElementById("productList");
+        let product = this.createItemController.getNewProduct();
+
+        let div = document.createElement("div");
+        div.className = "product";
+        div.draggable = "true";
+        div.innerHTML = product.name;
+
+        let productDiv = document.createElement("div");
+        productDiv.innerHTML = JSON.stringify(product);
+        productDiv.className = "productListItem object";
+
+        div.appendChild(productDiv);
+        productListDiv.append(div);
+
+        this.clearForm();
+    }
 
     buildCreateForm() {
         let form = document.getElementById("create-product-form")

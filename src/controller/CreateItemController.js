@@ -1,5 +1,6 @@
 import CreateItemView from "../view/CreateItemView";
 import ProductService from "../model/ProductService";
+import ReadItemContoller from "../controller/ReadItemController";
 
 export default class CreateItemController{
     constructor(){
@@ -7,6 +8,9 @@ export default class CreateItemController{
         this.view = new CreateItemView(this);
         this.createProduct = this.createProduct.bind(this);
         this.view.setEventListenerCreateClothes(this.createProduct); 
+        this.drawnProduct = null;
+
+        this.ReadItemContoller = new ReadItemContoller(this);
     }
 
     getElement() {
@@ -22,6 +26,10 @@ export default class CreateItemController{
             this.view.updateProductList();
             this.createProduct = this.createProduct.bind(this);
             this.view.setEventListenerCreateClothes(this.createProduct); 
+            this.dragStart = this.dragStart.bind(this);
+            this.view.setProductDragStartEventlisteners(this.dragStart);  
+            this.dragEnd = this.dragEnd.bind(this);
+            this.view.setProductDragEndEventListener(this.dragEnd);       
         }
     }
 
@@ -33,6 +41,10 @@ export default class CreateItemController{
             this.view.updateProductList();
             this.createProduct = this.createProduct.bind(this);
             this.view.setEventListenerCreateClothes(this.createProduct); 
+            this.dragStart = this.dragStart.bind(this);
+            this.view.setNewProductStartEventListener(this.dragStart); 
+            this.dragEnd = this.dragEnd.bind(this);
+            this.view.setNewProductDragEndEventListener(this.dragEnd);         
         }
     }
 
@@ -46,6 +58,10 @@ export default class CreateItemController{
         this.view.updateProductList();
         this.createProduct = this.createProduct.bind(this);
         this.view.setEventListenerCreateClothes(this.createProduct); 
+        this.dragStart = this.dragStart.bind(this);
+        this.view.setNewProductStartEventListener(this.dragStart); 
+        this.dragEnd = this.dragEnd.bind(this);
+        this.view.setNewProductDragEndEventListener(this.dragEnd);         
     }
 
     createProduct(event) {
@@ -148,7 +164,36 @@ export default class CreateItemController{
         return JSON.parse(obj);
     }
 
-    getProductNames() {
-        return this.productService.getProductNames();
+    getProducts() {
+        return this.productService.getProducts();
+    }
+
+    setDragStartListeners(view) {
+        this.dragStart = this.dragStart.bind(this);
+        view.setProductDragStartEventlisteners(this.dragStart); 
+    }
+
+    setDragEndListeners(view) {
+        this.dragEnd = this.dragEnd.bind(this);
+        view.setProductDragEndEventListener(this.dragEnd);
+    }
+
+    dragStart(event) {
+        this.drawnProduct = event.target;
+        this.drawnProduct.className += ' hold'
+        setTimeout(() => this.drawnProduct.className = 'invisible', 0) 
+    }
+
+    dragEnd(event) {
+        this.drawnProduct = event.target;
+        this.drawnProduct.className = "product";
+    }
+
+    getDrawnProduct() {
+        return this.drawnProduct;
+    }
+
+    setDrawnProductToZero() {
+        this.drawnProduct = null;
     }
 }

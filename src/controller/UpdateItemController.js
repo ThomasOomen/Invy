@@ -34,7 +34,6 @@ export default class UpdateItemController{
     }
 
     setExtraProperties(value){
-        console.log(value);
         this.extraProperties = value;
     }
 
@@ -47,7 +46,6 @@ export default class UpdateItemController{
     }
 
     setType(value){
-        console.log(value);
         this.activeType = value;
     }
 

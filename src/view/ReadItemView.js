@@ -40,9 +40,8 @@ export default class ReadItemView{
         let rows = 15;
         readItemDiv.style.setProperty('--grid-rows', rows);
         readItemDiv.style.setProperty('--grid-cols', cols);
-        for(let c = 0; c< (rows * cols); c++) {
+        for(let c = 0; c < (rows * cols); c++) {
             let cell = document.createElement("div");
-            cell.innerText = (name + 1);
             readItemDiv.appendChild(cell).className = "grid-item";
         }
         mainReadItemDiv.append(readItemDiv);
@@ -66,5 +65,42 @@ export default class ReadItemView{
 
     setEventListenerDecoration(callback){
         this.decorationButton.addEventListener("click", callback);
+    }
+
+    getFields() {
+        let fields = document.getElementsByClassName("grid-item");
+        return fields;
+    }
+
+    setDragOverEventListener(callback) {
+        let fields = document.getElementsByClassName("grid-item");
+        for(let field of fields) {
+            field.addEventListener("dragover", callback);
+        }
+    }
+
+    setDragEnterEventListener(callback) {
+        let fields = document.getElementsByClassName("grid-item");
+        for(let field of fields) {
+            field.addEventListener("dragenter", callback);
+        }
+    }
+
+    setDragLeaveEventListener(callback) {
+        let fields = document.getElementsByClassName("grid-item");
+        for(let field of fields) {
+            field.addEventListener("dragleave", callback);
+        }
+    }
+
+    setDropEventListener(callback) {
+        let fields = document.getElementsByClassName("grid-item");
+        for(let field of fields) {
+            field.addEventListener("drop", callback);
+        }
+    }
+
+    getInivibleDiv() {
+        return document.getElementsByClassName("invisible");
     }
 }
