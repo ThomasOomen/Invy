@@ -218,7 +218,6 @@ export default class CreateItemView{
         }
     }
 
-
     buildCreateForm() {
         let form = document.getElementById("create-product-form")
 
@@ -243,7 +242,7 @@ export default class CreateItemView{
 
         typeChooser.append(clothesOption, tierlantinOption, decorationOption);
 
-        form.append(title, typeChooser, this.createNameDiv(), this.createDescriptionDiv(), this.createPriceRow(), this.createStockRow(), this.createSubmitButton());
+        form.append(title, typeChooser, this.createNameDiv(), this.createDescriptionDiv(), this.createPriceRow(), this.createStockRow(),this.createLocationSelector(), this.createLocationInformation(), this.createSubmitButton());
         this.buildElement(form);
         this.addFormModule(typeChooser, form);
     }
@@ -303,7 +302,7 @@ export default class CreateItemView{
         input.id = "purchase_price";
         input.className = "form-control form-control-sm";
         input.type = "text";
-        input.placeholder = "inkoppprijs";
+        input.placeholder = "inkoopprijs";
 
         col.append(label, input);
         return col;
@@ -322,6 +321,7 @@ export default class CreateItemView{
         input.className = "form-control form-control-sm";
         input.type = "text";
         input.placeholder = "verkoopprijs";
+        input.disabled = true;
 
         col.append(label, input);
         return col;
@@ -340,6 +340,7 @@ export default class CreateItemView{
         input.className = "form-control form-control-sm";
         input.type = "text";
         input.placeholder = "verkoopprijs";
+        input.disabled = true;
 
         col.append(label, input);
         return col;
@@ -396,5 +397,96 @@ export default class CreateItemView{
         button.className = "btn btn-primary";
         button.innerHTML = "Submit";
         return button;
+    }
+
+    setEventListenerSalesPrice(callback){
+        let purchaseInput = document.getElementById("purchase_price");
+        purchaseInput.addEventListener("keyup", callback);
+    }
+
+    fillSalePrice(excBtw, incBtw){
+        console.log("view " + excBtw + " " + incBtw);
+        let salePriceExcBtw = document.getElementById("selling_price_exc_btw");
+        salePriceExcBtw.value = excBtw
+        let salePriceIncBtw = document.getElementById("selling_price_inc_btw");
+        salePriceIncBtw.value = incBtw;
+
+    }
+
+    createLocationSelector(){
+        let locationDiv = document.createElement("div");
+        locationDiv.className = "form-group";
+
+        let locationChooser = document.createElement("select");
+        locationChooser.id = "locationChooser";
+        locationChooser.className = "form-control form-control-sm";
+
+        let defaultOption = document.createElement("option");
+        defaultOption.value = "default";
+        defaultOption.innerHTML = "-- Kies een locatie --";
+
+        let DbOption = document.createElement("option");
+        DbOption.value = "Den Bosch";
+        DbOption.innerHTML = "Den Bosch";
+        
+        let NmOption = document.createElement("option");
+        NmOption.value = "Nijmegen";
+        NmOption.innerHTML = "Nijmegen";
+
+        let VwOption = document.createElement("option");
+        VwOption.value = "Valkenswaard";
+        VwOption.innerHTML = "Valkenswaard";
+
+        let VvOption = document.createElement("option");
+        VvOption.value = "Vladivostok";
+        VvOption.innerHTML = "Vladivostok";
+
+        let BjOption = document.createElement("option");
+        BjOption.value = "Beijing";
+        BjOption.innerHTML = "Beijing";
+
+        let kltOption = document.createElement("option");
+        kltOption.value = "Kugluktuk";
+        kltOption.innerHTML = "Kugluktuk";
+
+        locationChooser.append(defaultOption, DbOption, NmOption, VwOption, VvOption, BjOption, kltOption);
+        locationDiv.append(locationChooser);
+        return locationDiv;
+    }
+
+    createLocationInformation(){
+        let locInfoDiv = document.createElement("div");
+        locInfoDiv.className = "form-group text-center";
+
+        let ImgDiv = document.createElement("div");
+        ImgDiv.className = "col";
+
+        let img = document.createElement("img");
+        img.id = "locationImg";
+        let src = "../src/assest/default.jpg";
+        locInfoDiv.id = "locatinInfoDiv";
+        img.src = src
+
+        let tempDiv = document.createElement("div");
+        tempDiv.id = "temperatureText";
+        tempDiv.className = "centered";
+        tempDiv.innerHTML ="";
+
+        ImgDiv.append(img, tempDiv);
+        locInfoDiv.append(ImgDiv);
+        return locInfoDiv;
+    }
+
+    updateLocationInformation(imgSrc, temp){
+        let img = document.getElementById("locationImg");
+        let tempDiv = document.getElementById("temperatureText");
+        img.src = imgSrc;
+        tempDiv.innerHTML = temp;
+
+    }
+
+    setEventListenerCitySelect(callback){
+        let locationChooser = document.getElementById("locationChooser");
+        locationChooser.addEventListener("click", callback);
     }
 }

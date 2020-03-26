@@ -1,12 +1,21 @@
 import CreateItemView from "../view/CreateItemView";
 import ProductService from "../model/ProductService";
+import WeatherController from "../controller/WeatherController";
 
 export default class CreateItemController{
     constructor(){
         this.productService = new ProductService();
         this.view = new CreateItemView(this);
+        this.weatherController = new WeatherController(this);
+
         this.createProduct = this.createProduct.bind(this);
         this.view.setEventListenerCreateClothes(this.createProduct); 
+
+        this.calculateSalesPrice = this.calculateSalesPrice.bind(this);
+        this.view.setEventListenerSalesPrice(this.calculateSalesPrice);
+
+        this.selectCity = this.selectCity.bind(this);
+        this.view.setEventListenerCitySelect(this.selectCity);     
     }
 
     getElement() {
@@ -72,6 +81,17 @@ export default class CreateItemController{
                     break;
             }
         } 
+    }
+
+    selectCity(event){
+        let cityChooser = document.getElementById("locationChooser");
+        console.log("city chooser " + cityChooser.value);
+        this.weatherController.updateWeather(cityChooser.value);
+        
+    }
+
+    updateWeatherInfo(imgSrc, temp){
+        this.view.updateLocationInformation(imgSrc, temp);
     }
 
     validateName(name) {
@@ -150,5 +170,31 @@ export default class CreateItemController{
 
     getProductNames() {
         return this.productService.getProductNames();
+    }
+
+    calculateSalesPrice(){
+        let cityChooser = document.getElementById("locationChooser");
+        this.weatherController.updateWeather(cityChooser.value);
+        let purchasePrice = document.getElementById("purchase_price").value;
+
+        if(isNaN(purchasePrice) || purchasePrice === ""){
+            this.view.fillSalePrice("Verkoopprijs exc. btw", "Verkoopprijs inc. btw");
+        }
+        else {
+            // console.log(this.weatherController.getWeatherTemp());
+            // console.log(this.weatherController.getWeatherStatus());
+            let weatherDifficulty = this.weatherController.getWeatherTemp() * this.weatherController.getWeatherStatus();
+            console.log("weather diff = " + weatherDifficulty);
+            if(isNaN(weatherDifficulty)){
+                let excBtw = parseFloat(purchasePrice) + parseFloat((purchasePrice / 100 * 20));
+                let incBtw = parseFloat(excBtw) + parseFloat(0.21 * excBtw);
+                this.view.fillSalePrice(parseFloat(excBtw), parseFloat(incBtw));
+            }
+            else{
+                let excBtw = parseFloat(purchasePrice) + parseFloat((purchasePrice / 100 * 20) + weatherDifficulty);
+                let incBtw = parseFloat(excBtw) + parseFloat(0.21 * excBtw);
+                this.view.fillSalePrice(parseFloat(excBtw), parseFloat(incBtw));
+            }
+        }
     }
 }

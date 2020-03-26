@@ -59,3 +59,17 @@
 #addProperty:hover {
   background-color: rgb(50, 216, 0);
 }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
